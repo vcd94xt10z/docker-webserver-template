@@ -13,3 +13,10 @@ Ambiente de desenvolvimento Web usando Docker com: Fedora Linux + Apache + PHP +
 - "docker-compose down" Para a execução dos containers
 - "docker-compose up -d" Inicia a execução dos containers em background
 - "docker exec -it <ID DO CONTAINER> /bin/bash" Entra no bash do container que esta rodando. Para sair do bash "ctrl + d"
+  
+## Possíveis problemas
+Caso ocorra algum erro em subir o container, tente:
+1) Reiniciar o docker;
+2) Deletar imagens e volumes antigos e rebuildar tudo;
+3) Liberar permissão de leitura e gravação no diretório montado no container
+4) Verificar se o firewall o antivirus esta bloqueando o funcionamento do docker
