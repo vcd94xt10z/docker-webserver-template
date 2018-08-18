@@ -20,3 +20,5 @@ Caso ocorra algum erro em subir o container, tente:
 2) Deletar imagens e volumes antigos e rebuildar tudo;
 3) Liberar permissão de leitura e gravação no diretório montado no container
 4) Verificar se o firewall o antivirus esta bloqueando o funcionamento do docker
+5) Se tiver proxy na sua rede, vá nas configurações do docker > proxies e informe
+os dados do proxy no formato "servidor:porta"
