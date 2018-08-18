@@ -17,7 +17,7 @@ COPY ./webserver/ssl/localhost.key /etc/pki/tls/private/localhost.key
 # aplicação
 RUN dnf install -y php
 RUN mkdir /run/php-fpm/
-RUN dnf install -y php-mbstring php-pdo php-mysqlnd php-bcmath php-json
+RUN dnf install -y php-mbstring php-pdo php-mysqlnd php-bcmath php-json php-opcache php-xml
 COPY ./webserver/conf/99-myphp.ini /etc/php.d/99-myphp.ini
 
 # gerenciador de serviços
