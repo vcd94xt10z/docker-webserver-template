@@ -10,7 +10,7 @@ FROM fedora:latest
 RUN dnf update -y
 
 # ferramentas de gerenciamento e adminstração
-RUN dnf install -y htop psmisc supervisor
+RUN dnf install -y htop psmisc supervisor composer iputils
 
 # servidor web
 RUN dnf install -y httpd mod_ssl
@@ -19,7 +19,7 @@ COPY ./webserver/ssl/localhost.crt /etc/pki/tls/certs/localhost.crt
 COPY ./webserver/ssl/localhost.key /etc/pki/tls/private/localhost.key
 
 # aplicação
-RUN dnf install -y php php-mbstring php-pdo php-mysqlnd php-bcmath php-json php-opcache php-xml
+RUN dnf install -y php php-mbstring php-pdo php-mysqlnd php-bcmath php-json php-opcache php-xml php-soap
 RUN mkdir /run/php-fpm/
 COPY ./webserver/conf/99-myphp.ini /etc/php.d/99-myphp.ini
 
