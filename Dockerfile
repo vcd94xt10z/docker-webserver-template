@@ -10,7 +10,7 @@ FROM fedora:latest
 RUN dnf update -y
 
 # ferramentas de gerenciamento e adminstração
-RUN dnf install -y htop psmisc supervisor composer iputils findutils ncurses
+RUN dnf install -y htop psmisc supervisor composer iputils findutils ncurses wget crontabs
 
 # servidor web
 RUN dnf install -y httpd mod_ssl
@@ -22,6 +22,12 @@ COPY ./webserver/ssl/localhost.key /etc/pki/tls/private/localhost.key
 RUN dnf install -y php php-mbstring php-pdo php-mysqlnd php-bcmath php-json php-opcache php-xml php-soap php-zip
 RUN mkdir /run/php-fpm/
 COPY ./webserver/conf/99-myphp.ini /etc/php.d/99-myphp.ini
+
+# ferramenta para backup do banco
+RUN dnf install -y mysql
+
+# copiando crontab
+RUN crontab /webserver/conf/crontab.txt
 
 # apelido para reiniciar de forma fácil o php-fpm
 RUN alias restart-php='killall php-fpm;php-fpm -D;'

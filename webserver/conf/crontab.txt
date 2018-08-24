@@ -1,0 +1,2 @@
+# backup todo dia a 1h
+0 1 * * * /webserver/scripts/database-backup.sh
