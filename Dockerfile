@@ -27,10 +27,11 @@ COPY ./webserver/conf/99-myphp.ini /etc/php.d/99-myphp.ini
 RUN dnf install -y mysql
 
 # copiando crontab
-RUN crontab /webserver/conf/crontab.txt
+COPY ./webserver/conf/crontab.txt /tmp/crontab.txt
+RUN crontab /tmp/crontab.txt
 
-# apelido para reiniciar de forma fácil o php-fpm
-RUN alias restart-php='killall php-fpm;php-fpm -D;'
+# deixando alguns scripts globais
+RUN ln -s /webserver/scripts/service.sh /usr/bin/service
 
 # processo principal
 CMD ["supervisord","-c","/webserver/conf/supervisord.conf"]
