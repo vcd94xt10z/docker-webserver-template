@@ -25,7 +25,12 @@ backup(){
 
 send_to_cloud(){
 	# colocar aqui o comando para enviar para a nuvem
-	#gdrive upload ${DIR_DEST}${WEEKDAY}.tar.gz
+
+	# gdrive
+	# o comando 'gdrive list' deve ser executado na primeira vez para autorização	
+	# gdrive upload ${DIR_DEST}${WEEKDAY}.tar.gz
+	
+	# dropbox
 }
 
 backup

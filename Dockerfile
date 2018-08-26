@@ -32,6 +32,7 @@ RUN crontab /tmp/crontab.txt
 
 # deixando alguns scripts globais
 RUN ln -s /webserver/scripts/service.sh /usr/bin/service
+RUN ln -s /webserver/bin/gdrive /usr/bin/gdrive
 
 # processo principal
 CMD ["supervisord","-c","/webserver/conf/supervisord.conf"]
