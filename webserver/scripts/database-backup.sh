@@ -28,7 +28,9 @@ send_to_cloud(){
 
 	# gdrive
 	# o comando 'gdrive list' deve ser executado na primeira vez para autorização	
-	# gdrive upload ${DIR_DEST}${WEEKDAY}.tar.gz
+	# gdrive mkdir docker-backup <-- Cria o diretório e imprime o uma especie de hash do nome, que deve 
+	# ser usado no upload
+	# gdrive upload --parent 1Cv7K7Dxl9LdMwcSm7rExfeEUjz7d87rX ${DIR_DEST}${WEEKDAY}.tar.gz
 	
 	# dropbox
 }
