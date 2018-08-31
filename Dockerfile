@@ -10,7 +10,7 @@ FROM fedora:latest
 RUN dnf update -y
 
 # ferramentas de gerenciamento e adminstração
-RUN dnf install -y htop psmisc supervisor composer iputils findutils ncurses wget crontabs
+RUN dnf install -y htop psmisc supervisor composer iputils findutils ncurses wget crontabs git
 
 # servidor web
 RUN dnf install -y httpd mod_ssl
