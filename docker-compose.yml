@@ -38,7 +38,7 @@ services:
 			- ./webserver/:/webserver/
 			
             # modo1
-            - ./webserver/database-data:/var/lib/mysql
+			- ./webserver/database-data:/var/lib/mysql
             
             # modo2
             # - my-datavolume:/var/lib/mysql

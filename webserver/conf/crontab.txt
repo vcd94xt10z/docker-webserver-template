@@ -1,2 +1,5 @@
 # backup todo dia a 1h
 0 1 * * * /webserver/scripts/database-backup.sh
+
+# renovacao automatica de ssl
+39 1,13 * * * root certbot renew --no-self-upgrade
