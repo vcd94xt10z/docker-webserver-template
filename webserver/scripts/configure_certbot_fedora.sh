@@ -18,3 +18,4 @@ echo "39 1,13 * * * root certbot renew --no-self-upgrade" >> /var/spool/cron/roo
 #SSLCipherSuite ALL:!DH:!EXPORT:!RC4:+HIGH:+MEDIUM:!LOW:!aNULL:!eNULL
 #SSLCertificateFile /etc/letsencrypt/live/meudominio.com/cert.pem
 #SSLCertificateKeyFile /etc/letsencrypt/live/meudominio.com/privkey.pem
+#SSLCertificateChainFile /etc/letsencrypt/live/meudominio.com/fullchain.pem
