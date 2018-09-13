@@ -1,13 +1,7 @@
-# há dois caminhos para trabalhar com a persistência de dados no banco
-# 1) usar uma pasta compartilhada entre o host e o container
-# 2) usar um volume persistente do docker
-#
-# O modo habilitado é o primeiro. Caso tenha algum problema, mude para o modo 2 
-# comentando e descomentando as linhas relevantes
-
 version: "2"
 services:
     web:
+    	container_name: web-container
         build:
             context: ./
             dockerfile: Dockerfile
@@ -19,10 +13,11 @@ services:
         networks:
             - default
     db:
+    	container_name: db-container
         image: mariadb:latest
         command: --max_allowed_packet=32505856 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
         
-        # modo1 - comando para não dar pau em mapear um diretório windows no linux com o mariadb
+        # comando para não dar pau em mapear um diretório windows no linux com o mariadb
         command: 'mysqld --innodb-flush-method=fsync'
         
         ports:
@@ -36,12 +31,5 @@ services:
             - default
         volumes:
             - ./webserver/:/webserver/
-            
-            # modo1
             - ./webserver/database-data:/var/lib/mysql
-            
-            # modo2
-            # - my-datavolume:/var/lib/mysql
-# modo2
-#volumes:
-#  my-datavolume:
+            - ./webserver/letsencrypt:/etc/letsencrypt

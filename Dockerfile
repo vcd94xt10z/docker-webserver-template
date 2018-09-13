@@ -10,7 +10,7 @@ FROM fedora:latest
 RUN dnf update -y
 
 # ferramentas de gerenciamento e adminstração
-RUN dnf install -y htop psmisc supervisor composer iputils findutils ncurses wget crontabs git
+RUN dnf install -y htop psmisc supervisor composer iputils findutils ncurses wget
 
 # servidor web
 RUN dnf install -y httpd mod_ssl
@@ -26,13 +26,8 @@ COPY ./webserver/conf/99-myphp.ini /etc/php.d/99-myphp.ini
 # ferramenta para backup do banco
 RUN dnf install -y mysql
 
-# copiando crontab
-COPY ./webserver/conf/crontab.txt /tmp/crontab.txt
-RUN crontab /tmp/crontab.txt
-
 # deixando alguns scripts globais
 RUN ln -s /webserver/scripts/service.sh /usr/bin/service
-RUN ln -s /webserver/bin/gdrive /usr/bin/gdrive
 
 # processo principal
 CMD ["supervisord","-c","/webserver/conf/supervisord.conf"]

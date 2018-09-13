@@ -1,5 +1,8 @@
+# Este crontab deve ficar na máquina host e não dentro de um container
+# Atenção! a ultima linha deve ficar em branco para não dar pau no contrab 
+
 # backup todo dia a 1h
-0 1 * * * /webserver/scripts/database-backup.sh
+0 1 * * * /docker-webserver/webserver/scripts/database-backup.sh
 
 # renovacao automatica de ssl
-39 1,13 * * * root certbot renew --no-self-upgrade
+39 1,13 * * * /docker-webserver/webserver/scripts/certbot-fedora.sh renovar
