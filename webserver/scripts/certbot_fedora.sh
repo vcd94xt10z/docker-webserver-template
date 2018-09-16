@@ -18,7 +18,7 @@ gerar(){
 	docker exec -it web-container certbot certonly --manual -d $DOMAIN -d *.$DOMAIN --agree-tos --manual-public-ip-logging-ok --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory	
 	
 	# copiando dados gerados
-	cp -a /etc/letsencrypt/. /webserver/letsencrypt
+	docker exec -it web-container cp -a /etc/letsencrypt/. /webserver/letsencrypt
 }
 
 renovar(){
@@ -26,7 +26,7 @@ renovar(){
 	docker exec -it web-container certbot renew --no-self-upgrade
 	
 	# copiando dados gerados
-	cp -a /etc/letsencrypt/. /webserver/letsencrypt
+	docker exec -it web-container cp -a /etc/letsencrypt/. /webserver/letsencrypt
 }
 
 case $ACTION in
