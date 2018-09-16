@@ -29,5 +29,12 @@ RUN dnf install -y mysql
 # deixando alguns scripts globais
 RUN ln -s /webserver/scripts/service.sh /usr/bin/service
 
+# letsencrypt
+RUN dnf install python3*certbot* -y
+COPY ./webserver/letsencrypt/ /etc/letsencrypt/
+
+# limpando dnf
+RUN dnf clean all
+
 # processo principal
 CMD ["supervisord","-c","/webserver/conf/supervisord.conf"]

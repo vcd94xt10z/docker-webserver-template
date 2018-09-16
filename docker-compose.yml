@@ -32,4 +32,3 @@ services:
         volumes:
             - ./webserver/:/webserver/
             - ./webserver/database-data:/var/lib/mysql
-            - ./webserver/letsencrypt:/etc/letsencrypt
