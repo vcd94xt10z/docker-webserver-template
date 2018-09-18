@@ -19,7 +19,7 @@ COPY ./webserver/ssl/localhost.crt /etc/pki/tls/certs/localhost.crt
 COPY ./webserver/ssl/localhost.key /etc/pki/tls/private/localhost.key
 
 # aplicação
-RUN dnf install -y php php-mbstring php-pdo php-mysqlnd php-bcmath php-json php-opcache php-xml php-soap php-zip
+RUN dnf install -y php php-mbstring php-pdo php-mysqlnd php-pdo-dblib php-bcmath php-json php-opcache php-xml php-soap php-zip
 RUN mkdir /run/php-fpm/
 COPY ./webserver/conf/99-myphp.ini /etc/php.d/99-myphp.ini
 
