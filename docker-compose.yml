@@ -8,6 +8,10 @@ services:
         ports:
             - "80:80"
             - "443:443"
+            
+            # portas para acesso externo no windows
+            - "8080:80"
+            - "444:443"
         volumes:
             - ./webserver/:/webserver/
         networks:
