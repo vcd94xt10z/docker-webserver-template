@@ -2,7 +2,7 @@
 # Atenção! a ultima linha deve ficar em branco para não dar pau no contrab 
 
 # backup todo dia a 1h
-0 1 * * * /docker-webserver/webserver/scripts/database-backup.sh
+0 1 * * * /docker-webserver/webserver/scripts/util/database-backup.sh
 
 # renovacao automatica de ssl
-39 1,13 * * * /docker-webserver/webserver/scripts/certbot-fedora.sh renovar
+39 1,13 * * * /docker-webserver/webserver/scripts/ssl/certbot-fedora.sh renovar
