@@ -29,13 +29,18 @@ send_to_cloud(){
 
 	# gdrive (Google Drive)
 	# 1) Na primeira vez, um link simbolico deve ser criado no binario do gdrive para deixar global no Linux
-	# ln -s /webserver/bin/gdrive /usr/bin/gdrive
+	# ln -s /docker-webserver/webserver/bin/gdrive /usr/bin/gdrive
 	#
 	# 2) O comando 'gdrive list' deve ser executado na primeira vez para fazer o processo de autorização
 	# gdrive list
 	#
 	# 3) no comando gdrive list é exibido o id do diretório, que deve ser usado no comando para upload
-	# gdrive upload --parent 1Cv7K7Dxl9LdMwcSm7rExfeEUjz7d87rX ${DIR_DEST_HOST}${WEEKDAY}.tar.gz
+	#
+	# deletando arquivo antigo se houver
+	gdrive delete ${DIR_DEST_HOST}${WEEKDAY}.tar.gz
+	#
+	# upando novo arquivo
+	gdrive upload --parent 1Cv7K7Dxl9LdMwcSm7rExfeEUjz7d87rX ${DIR_DEST_HOST}${WEEKDAY}.tar.gz
 }
 
 backup
