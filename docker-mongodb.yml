@@ -1,0 +1,18 @@
+version: "2"
+services:
+    mongodb:
+        container_name: mongodb-container
+        image: mongo
+        ports:
+          - 27017:27017
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: example
+        networks:
+            - default
+        links:
+            - web
+        # esta dando erro se descomentar, pesquisa na internet a solução
+        #volumes:
+        #    - ./webserver/:/webserver/
+        #    - ./webserver/data-mongodb:/data/db
