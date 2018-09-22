@@ -27,7 +27,7 @@ COPY ./webserver/conf/99-myphp.ini /etc/php.d/99-myphp.ini
 RUN dnf install -y mysql
 
 # deixando alguns scripts globais
-RUN ln -s /webserver/scripts/service.sh /usr/bin/service
+RUN ln -s /webserver/scripts/util/service.sh /usr/bin/service
 
 # letsencrypt
 RUN dnf install python3*certbot* -y
