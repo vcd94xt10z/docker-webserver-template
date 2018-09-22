@@ -1,4 +1,14 @@
-# dicas
+# Este arquivo contém dicas de como trabalhar com arquivos customizado, que não
+# tem o nome padrão docker-compose.yml. Nos exemplos, será utilizado o arquivo mariadb.yml
+
+# subir
+docker-compose -f mariadb.yml up
+
+# subir dois ao mesmo tempo
+docker-compose -f docker-compose.yml -f mariadb.yml up -d
+
+# parar
+docker-compose -f mariadb.yml down
 
 # caso precise gerar um certificado para testes
 openssl req -new -x509 -nodes -out server.crt -keyout server.key
