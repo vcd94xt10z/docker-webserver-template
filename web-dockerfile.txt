@@ -17,6 +17,10 @@ RUN dnf install -y httpd mod_ssl
 RUN echo "IncludeOptional /webserver/vhosts/*.conf" >> /etc/httpd/conf/httpd.conf
 COPY ./webserver/ssl/localhost/localhost.crt /etc/pki/tls/certs/localhost.crt
 COPY ./webserver/ssl/localhost/localhost.key /etc/pki/tls/private/localhost.key
+COPY ./webserver/ssl/localhost/server-chain.crt /etc/pki/tls/certs/server-chain.crt
+
+# descomentar linha
+RUN sed -i '/SSLCertificateChainFile/s/^#//g' /etc/httpd/conf.d/ssl.conf
 
 # aplicação
 RUN dnf install -y nodejs
