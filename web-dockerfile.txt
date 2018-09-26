@@ -20,7 +20,7 @@ COPY ./webserver/ssl/localhost/localhost.key /etc/pki/tls/private/localhost.key
 COPY ./webserver/ssl/localhost/server-chain.crt /etc/pki/tls/certs/server-chain.crt
 
 # descomentar linha
-RUN sed -i '/SSLCertificateChainFile/s/^#//g' /etc/httpd/conf.d/ssl.conf
+RUN sed -i '/SSLCertificateChainFile /etc/pki//s/^#//g' /etc/httpd/conf.d/ssl.conf
 
 # aplicação
 RUN dnf install -y nodejs

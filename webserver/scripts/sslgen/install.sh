@@ -21,7 +21,7 @@ cp /webserver/ssl/localhost/localhost.key /etc/pki/tls/private/localhost.key
 cp /webserver/ssl/localhost/server-chain.crt /etc/pki/tls/certs/server-chain.crt
 
 # descomentando linha
-sed -i '/SSLCertificateChainFile/s/^#//g' /etc/httpd/conf.d/ssl.conf
+sed -i '/SSLCertificateChainFile \/etc\/pki\//s/^#//g' /etc/httpd/conf.d/ssl.conf
 
 service httpd restart
 
