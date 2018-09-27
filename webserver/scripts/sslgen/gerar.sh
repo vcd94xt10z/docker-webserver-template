@@ -2,7 +2,7 @@
 
 FOLDER=$(pwd)/
 FOLDER_OUT=${FOLDER}out/
-DAYS=99999
+DAYS=3650
 
 mkdir ${FOLDER_OUT}
 cd ${FOLDER_OUT}
