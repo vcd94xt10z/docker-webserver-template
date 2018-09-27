@@ -24,7 +24,7 @@ RUN sed -i '/SSLCertificateChainFile /etc/pki//s/^#//g' /etc/httpd/conf.d/ssl.co
 
 # aplicação
 RUN dnf install -y nodejs
-RUN dnf install -y php php-mbstring php-pdo php-mysqlnd php-pdo-dblib php-bcmath php-json php-opcache php-xml php-soap php-zip php-xdebug
+RUN dnf install -y php php-mbstring php-pdo php-mysqlnd php-pdo-dblib php-mongodb php-bcmath php-json php-opcache php-xml php-soap php-zip php-xdebug
 RUN mkdir /run/php-fpm/
 COPY ./webserver/conf/99-myphp.ini /etc/php.d/99-myphp.ini
 
