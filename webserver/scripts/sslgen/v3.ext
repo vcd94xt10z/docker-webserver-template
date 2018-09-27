@@ -5,14 +5,12 @@ keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
 subjectAltName = @alt_names
 
 [alt_names]
-DNS.1 = *
-DNS.2 = *.dev
-DNS.3 = *.des
-DNS.4 = *.qas
-DNS.5 = *.prd
-DNS.6 = *.com
-DNS.7 = *.net
-DNS.8 = *.br
-DNS.9 = *.local
-DNS.10 = *.test
-DNS.11 = 127.0.0.1
+DNS.1 = *.dev
+DNS.2 = *.des
+DNS.3 = *.qas
+DNS.4 = *.prd
+DNS.5 = *.com
+DNS.6 = *.net
+DNS.7 = *.br
+DNS.8 = *.local
+DNS.9 = *.test
