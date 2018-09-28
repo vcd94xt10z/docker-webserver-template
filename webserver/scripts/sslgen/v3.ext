@@ -5,14 +5,12 @@ keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
 subjectAltName = @alt_names
 
 # para usar wildcard, deve-se ter no mínimo 2 níveis
-# Exemplos válidos: *.com.br, *.local.dev
-# Exemplos inválidos: *, *.com, *.br, teste.*.com.br, *.*.com.br
+# Exemplos válidos: *.local.des, *.teste.loca.des
+# Exemplos inválidos: *, *.com, *.br, *.com.br, teste.*.com.br, *.*.com.br
 [alt_names]
 DNS.1 = localhost
-DNS.2 = *.local.dev
-DNS.3 = *.local.des
-DNS.4 = *.local.qas
-DNS.5 = *.com.br
-DNS.6 = *.net.br
+DNS.2 = *.dev.local
+DNS.4 = *.qas.local
+DNS.5 = *.prd.local
 IP.1 = 127.0.0.1
 IP.2 = ::1
