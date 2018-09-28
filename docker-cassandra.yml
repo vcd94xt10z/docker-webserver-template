@@ -1,0 +1,15 @@
+version: "2"
+services:
+    cassandra:
+        container_name: cassandra-container
+        image: cassandra
+        ports:
+          - 7000:7000
+          - 9042:9042
+        networks:
+            - default
+        links:
+            - web
+        volumes:
+            - ./webserver/:/webserver/
+            - ./webserver/data-cassandra:/var/lib/cassandra
