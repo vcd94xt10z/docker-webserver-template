@@ -2,7 +2,10 @@
 
 FOLDER=$(pwd)/
 FOLDER_OUT=${FOLDER}out/
-DAYS=3650
+
+# não aumente mais a validade para não ocorrer problemas com o reconhecimento do certificado
+# https://www.ssl.com/blogs/ssl-certificate-maximum-duration-825-days/
+DAYS=825
 
 mkdir ${FOLDER_OUT}
 cd ${FOLDER_OUT}

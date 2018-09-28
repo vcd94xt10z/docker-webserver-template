@@ -1,0 +1,5 @@
+Antes de gerar o certificado, confira as regras
+https://en.wikipedia.org/wiki/Wildcard_certificate
+https://en.wikipedia.org/wiki/Wildcard_DNS_record
+https://www.ssl.com/blogs/ssl-certificate-maximum-duration-825-days/
+https://unix.stackexchange.com/questions/288517/how-to-make-self-signed-certificate-for-localhost

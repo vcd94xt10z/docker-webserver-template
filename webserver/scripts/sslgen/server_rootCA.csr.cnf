@@ -11,5 +11,5 @@ ST=Zion
 L=Zion
 O=Zion
 OU=SelfSigned
-emailAddress=localhost@localhost.com
-CN = localhost.com
+emailAddress=localhost@localhost.ssl
+CN = localhost.ssl

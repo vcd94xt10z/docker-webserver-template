@@ -4,10 +4,15 @@ basicConstraints=CA:FALSE
 keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
 subjectAltName = @alt_names
 
+# para usar wildcard, deve-se ter no mínimo 2 níveis
+# Exemplos válidos: *.com.br, *.local.dev
+# Exemplos inválidos: *, *.com, *.br, teste.*.com.br, *.*.com.br
 [alt_names]
-DNS.1 = *.dev
-DNS.2 = *.des
-DNS.3 = *.qas
-DNS.4 = *.*.dev
-DNS.5 = *.*.des
-DNS.6 = *.*.qas
+DNS.1 = localhost
+DNS.2 = *.local.dev
+DNS.3 = *.local.des
+DNS.4 = *.local.qas
+DNS.5 = *.com.br
+DNS.6 = *.net.br
+DNS.7 = 127.0.0.1
+DNS.8 = ::1
