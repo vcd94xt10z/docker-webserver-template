@@ -1,0 +1,25 @@
+version: "3"
+services:
+    gitlab:
+        container_name: gitlab-container
+        privileged: true
+        image: gitlab/gitlab-ce
+        hostname: 'gitlab.seusite.com.br'
+        environment:
+            GITLAB_OMNIBUS_CONFIG: external_url 'https://gitlab.seusite.com.br'
+        ports:
+            - "80:80"
+            - "443:443"
+            - "22:22"
+        volumes:
+            - ./webserver/data-gitlab/config:/etc/gitlab
+            - ./webserver/data-gitlab/logs:/var/log/gitlab
+            
+            # gravando em um volume do docker porque esta dando pau no Windows
+            # docker volume create gitlab-data
+            - gitlab-data:/var/opt/gitlab
+        networks:
+            - default
+volumes:
+    gitlab-data:
+        external: true

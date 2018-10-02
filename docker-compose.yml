@@ -2,6 +2,7 @@ version: "2"
 services:
     web:
         container_name: web-container
+        restart: always
         build:
             context: ./
             dockerfile: web-dockerfile.txt
