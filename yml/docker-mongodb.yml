@@ -15,4 +15,4 @@ services:
         # esta dando erro se descomentar, pesquisa na internet a solução
         #volumes:
         #    - ./webserver/:/webserver/
-        #    - ./webserver/data-mongodb:/data/db
+        #    - ./webserver/data/mongodb:/data/db

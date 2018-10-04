@@ -13,8 +13,8 @@ services:
             - "4422:22"
         volumes:
         	- ./webserver/:/webserver
-            - ./webserver/data-gitlab/config:/etc/gitlab
-            - ./webserver/data-gitlab/logs:/var/log/gitlab
+            - ./webserver/data/gitlab/config:/etc/gitlab
+            - ./webserver/data/gitlab/logs:/var/log/gitlab
             
             # gravando em um volume do docker porque esta dando pau no Windows
             # docker volume create gitlab-data

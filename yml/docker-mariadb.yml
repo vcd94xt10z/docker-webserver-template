@@ -21,4 +21,4 @@ services:
             - web
         volumes:
             - ./webserver/:/webserver/
-            - ./webserver/data-mariadb:/var/lib/mysql
+            - ./webserver/data/mariadb:/var/lib/mysql

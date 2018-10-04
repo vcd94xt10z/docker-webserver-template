@@ -15,4 +15,4 @@ services:
             - web
         volumes:
             - ./webserver/:/webserver/
-            - ./webserver/data-mssql:/var/opt/mssql
+            - ./webserver/data/mssql:/var/opt/mssql

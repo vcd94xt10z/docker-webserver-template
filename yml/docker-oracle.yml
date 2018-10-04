@@ -14,4 +14,4 @@ services:
             - web
         volumes:
             - ./webserver/:/webserver/
-            - ./webserver/data-oracle:/u01/app/oracle
+            - ./webserver/data/oracle:/u01/app/oracle

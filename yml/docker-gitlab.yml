@@ -12,8 +12,8 @@ services:
             - "4422:22"
         volumes:
         	- ./webserver/:/webserver
-            - ./webserver/data-gitlab/config:/etc/gitlab
-            - ./webserver/data-gitlab/logs:/var/log/gitlab
-            - ./webserver/data-gitlab/data:/var/opt/gitlab
+            - ./webserver/data/gitlab/config:/etc/gitlab
+            - ./webserver/data/gitlab/logs:/var/log/gitlab
+            - ./webserver/data/gitlab/data:/var/opt/gitlab
         networks:
             - default
