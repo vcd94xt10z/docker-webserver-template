@@ -5,7 +5,7 @@ services:
         restart: always
         build:
             context: ./
-            dockerfile: web-dockerfile.txt
+            dockerfile: webserver.Dockerfile
         ports:
             - "80:80"
             - "443:443"

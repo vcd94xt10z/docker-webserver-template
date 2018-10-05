@@ -1,0 +1,14 @@
+version: "2"
+services:
+    ssh:
+        container_name: ssh-container
+        restart: always
+        build:
+            context: ./
+            dockerfile: docker-ssh.Dockerfile
+        ports:
+            - "4422:22"
+        volumes:
+            - ./webserver/:/webserver/
+        networks:
+            - default
