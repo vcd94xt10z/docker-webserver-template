@@ -5,7 +5,7 @@ services:
         restart: always
         build:
             context: ./
-            dockerfile: docker-ssh.Dockerfile
+            dockerfile: ssh.Dockerfile
         ports:
             - "4422:22"
         volumes:
