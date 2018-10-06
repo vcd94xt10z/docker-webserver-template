@@ -1,16 +1,22 @@
 # Atenção! Verificar se as pastas mapeadas no container tem permissão total!
 FROM fedora:latest
 
-# configurando proxy (descomente se utilizar proxy)
-#RUN echo "proxy=http://192.168.10.3:3128" >> /etc/dnf/dnf.conf
-#RUN echo "proxy_username=fulano" >> /etc/dnf/dnf.conf
-#RUN echo "proxy_password=123" >> /etc/dnf/dnf.conf
+# configuração de proxy
+ARG proxy_host=192.168.10.3
+ARG proxy_port=3128
+ARG proxy_user=fulano
+ARG proxy_password=123
+
+# proxy dnf
+#RUN echo "proxy=http://$proxy_host:$proxy_port" >> /etc/dnf/dnf.conf
+#RUN echo "proxy_username=$proxy_user" >> /etc/dnf/dnf.conf
+#RUN echo "proxy_password=$proxy_password" >> /etc/dnf/dnf.conf
 
 # atualizando o dnf
 RUN dnf update -y
 
 # ferramentas de gerenciamento e adminstração
-RUN dnf install -y htop psmisc supervisor composer iputils findutils ncurses wget
+RUN dnf install -y htop psmisc supervisor composer iputils findutils ncurses wget nano langpacks-pt_BR jpegoptim pngquant
 
 # servidor web
 RUN dnf install -y httpd mod_ssl
@@ -23,10 +29,19 @@ COPY ./webserver/ssl/localhost/server-chain.crt /etc/pki/tls/certs/server-chain.
 RUN sed -i '/SSLCertificateChainFile /etc/pki//s/^#//g' /etc/httpd/conf.d/ssl.conf
 
 # aplicação
-RUN dnf install -y nodejs
 RUN dnf install -y php php-mbstring php-pdo php-mysqlnd php-pdo-dblib php-mongodb php-bcmath php-json php-opcache php-xml php-soap php-zip php-xdebug
 RUN mkdir /run/php-fpm/
 COPY ./webserver/conf/99-myphp.ini /etc/php.d/99-myphp.ini
+
+# python
+RUN dnf install -y python-requests python-gevent
+#RUN pip install --proxy http://$proxy_user:$proxy_passoword@$proxy_host:$proxy_port 
+RUN pip install suds-jurko zeep grequests unidecode pymysql
+
+# nodejs
+RUN dnf install -y nodejs
+#npm config set proxy http://$proxy_host:$proxy_port
+#npm config set https-proxy http://$proxy_host:$proxy_port
 
 # ferramenta para backup do banco
 RUN dnf install -y mysql
