@@ -24,6 +24,7 @@ RUN echo "IncludeOptional /webserver/vhosts/*.conf" >> /etc/httpd/conf/httpd.con
 COPY ./webserver/ssl/localhost/localhost.crt /etc/pki/tls/certs/localhost.crt
 COPY ./webserver/ssl/localhost/localhost.key /etc/pki/tls/private/localhost.key
 COPY ./webserver/ssl/localhost/server-chain.crt /etc/pki/tls/certs/server-chain.crt
+RUN echo "/webserver/config/hosts" >> /etc/hosts
 
 # descomentar linha
 RUN sed -i '/SSLCertificateChainFile /etc/pki//s/^#//g' /etc/httpd/conf.d/ssl.conf
