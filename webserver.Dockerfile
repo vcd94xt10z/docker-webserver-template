@@ -18,15 +18,14 @@ RUN dnf update -y
 # instalações dnf
 RUN dnf install -y \
 	&& htop psmisc supervisor composer iputils findutils ncurses wget nano langpacks-pt_BR jpegoptim pngquant \
-	&& httpd mod_ssl nodejs mysql \
-	&& php php-mbstring php-pdo php-mysqlnd php-pdo-dblib php-mongodb php-bcmath php-json php-opcache php-xml php-soap php-zip php-xdebug \
-	&& python-requests python-gevent
+	&& httpd mod_ssl nodejs mysql python-requests python-gevent python3*certbot* \
+	&& php php-mbstring php-pdo php-mysqlnd php-pdo-dblib php-mongodb php-bcmath php-json php-opcache php-xml php-soap php-zip php-xdebug
 	
 # configurações de proxy (outros gerenciadores)
 #RUN pip install --proxy http://$proxy_user:$proxy_passoword@$proxy_host:$proxy_port
-#npm config set proxy http://$proxy_host:$proxy_port
-#npm config set https-proxy http://$proxy_host:$proxy_port
-	
+#RUN npm config set proxy http://$proxy_host:$proxy_port
+#RUN npm config set https-proxy http://$proxy_host:$proxy_port
+
 # configurações
 RUN echo "IncludeOptional /webserver/vhosts/*.conf" >> /etc/httpd/conf/httpd.conf
 COPY ./webserver/ssl/localhost/localhost.crt /etc/pki/tls/certs/localhost.crt
@@ -36,16 +35,11 @@ RUN sed -i '/SSLCertificateChainFile /etc/pki//s/^#//g' /etc/httpd/conf.d/ssl.co
 RUN echo "/webserver/config/hosts" >> /etc/hosts
 RUN mkdir /run/php-fpm/
 COPY ./webserver/conf/99-myphp.ini /etc/php.d/99-myphp.ini
+COPY ./webserver/letsencrypt/ /etc/letsencrypt/
+RUN ln -s /webserver/scripts/util/service.sh /usr/bin/service
 
 # dependencias python
 RUN pip install suds-jurko zeep grequests unidecode pymysql
-
-# deixando alguns scripts globais
-RUN ln -s /webserver/scripts/util/service.sh /usr/bin/service
-
-# letsencrypt
-RUN dnf install python3*certbot* -y
-COPY ./webserver/letsencrypt/ /etc/letsencrypt/
 
 # limpando dnf
 RUN dnf clean all
