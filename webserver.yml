@@ -1,8 +1,9 @@
+# Se ocorrer erro na montagem do volume, tente informar o caminho absoluto do diretório no host
 version: "2"
 services:
     web:
         container_name: web-container
-        restart: always
+        #restart: always
         build:
             context: ./
             dockerfile: webserver.Dockerfile
