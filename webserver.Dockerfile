@@ -36,8 +36,6 @@ COPY ./webserver/ssl/localhost/localhost.key /etc/pki/tls/private/localhost.key
 COPY ./webserver/ssl/localhost/server-chain.crt /etc/pki/tls/certs/server-chain.crt
 COPY ./webserver/conf/99-myphp.ini /etc/php.d/99-myphp.ini
 COPY ./webserver/letsencrypt/ /etc/letsencrypt/
-#COPY ./webserver/config/hosts /tmp/
-#RUN cat /tmp/hosts >> /etc/hosts
 
 # processo principal
 CMD ["supervisord","-c","/webserver/conf/supervisord.conf"]
