@@ -16,7 +16,7 @@ RUN dnf update -y && dnf install -y \
 	htop psmisc supervisor composer iputils findutils ncurses wget nano langpacks-pt_BR jpegoptim pngquant \
 	httpd mod_ssl nodejs mysql python-requests python-gevent python3*certbot* \
 	php php-mbstring php-pdo php-mysqlnd php-pdo-dblib php-mongodb php-bcmath php-json php-opcache php-xml \
-	php-soap php-zip php-xdebug \
+	php-soap php-zip php-xdebug php-redis \
  && dnf clean all
 	
 # configurações de proxy (outros gerenciadores)

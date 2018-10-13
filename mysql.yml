@@ -1,6 +1,6 @@
 version: '2'
 services:
-    db:
+    mysql:
         container_name: mysql-container
         image: mysql
         command: --default-authentication-plugin=mysql_native_password

@@ -1,0 +1,18 @@
+version: '2'
+services:
+    redis:
+        container_name: redis-container
+        build:
+            context: ./
+            dockerfile: redis.Dockerfile
+        ports:
+            - "6379:6379"
+        networks:
+            - default
+        links:
+            - web
+        volumes:
+            #- ./webserver/:/webserver/
+            #- ./webserver/data/redis:/data
+            - C:\docker-webserver\webserver:/webserver/
+            - C:\docker-webserver\webserver\data\redis:/data
