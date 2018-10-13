@@ -1,0 +1,19 @@
+version: '2'
+services:
+    db:
+        container_name: mysql-container
+        image: mysql
+        command: --default-authentication-plugin=mysql_native_password
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: 123456
+        networks:
+            - default
+        links:
+            - web
+        volumes:
+            #- ./webserver/:/webserver/
+            #- ./webserver/data/mariadb:/var/lib/mysql
+            - C:\docker-webserver\webserver:/webserver/
+            - C:\docker-webserver\webserver\data\mysql:/var/lib/mysql
