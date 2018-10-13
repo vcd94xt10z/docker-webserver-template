@@ -16,8 +16,6 @@ services:
             - "443:443"
             - "3000:3000"
             - "3001:3001"
-        #environment:
-            #COMPOSE_CONVERT_WINDOWS_PATHS: 1
         volumes:
             #- ./webserver/:/webserver/
             - C:\docker-webserver\webserver\:/webserver/
