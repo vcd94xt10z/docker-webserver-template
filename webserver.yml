@@ -1,4 +1,8 @@
-# Se ocorrer erro na montagem do volume, tente informar o caminho absoluto do diretório no host
+# Possíveis problemas
+# 1) Se não conseguir compartilhar o driver com o Docker, verifique se no Windows esta habilitado o compartilhamento de 
+# arquivos SMB/CIFS 1.0
+# 2) Se ocorrer erro na montagem do volume, tente informar o caminho absoluto do diretório no host
+# 3) Libere as permissões do diretório no qual esta tentando montar o volume
 version: "2"
 services:
     web:
@@ -12,7 +16,10 @@ services:
             - "443:443"
             - "3000:3000"
             - "3001:3001"
+        #environment:
+            #COMPOSE_CONVERT_WINDOWS_PATHS: 1
         volumes:
-            - ./webserver/:/webserver/
+            #- ./webserver/:/webserver/
+            - C:\docker-webserver\webserver\:/webserver/
         networks:
             - default
