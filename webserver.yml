@@ -17,7 +17,7 @@ services:
             - "3000:3000"
             - "3001:3001"
         volumes:
-            #- ./webserver/:/webserver/
-            - C:\docker-webserver\webserver\:/webserver/
+            - ./webserver/:/webserver/
+            #- C:\docker-webserver\webserver\:/webserver/
         networks:
             - default

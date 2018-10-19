@@ -20,7 +20,7 @@ services:
         links:
             - web
         volumes:
-            #- ./webserver/:/webserver/
-            #- ./webserver/data/mariadb:/var/lib/mysql
-            - C:\docker-webserver\webserver:/webserver/
-            - C:\docker-webserver\webserver\data\mariadb:/var/lib/mysql          
+            - ./webserver/:/webserver/
+            - ./webserver/data/mariadb:/var/lib/mysql
+            #- C:\docker-webserver\webserver:/webserver/
+            #- C:\docker-webserver\webserver\data\mariadb:/var/lib/mysql          

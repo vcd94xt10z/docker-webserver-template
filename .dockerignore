@@ -1,2 +1,4 @@
 /webserver/sites/*
 /webserver/data/*
+/docker-webserver/webserver/sites/*
+/docker-webserver/webserver/data/*
