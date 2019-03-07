@@ -22,5 +22,6 @@ services:
         volumes:
             - ./webserver/:/webserver/
             - ./webserver/data/mariadb:/var/lib/mysql
+            - ./webserver/data/mariadb-config:/etc/mysql/conf.d
             #- C:\docker-webserver\webserver:/webserver/
             #- C:\docker-webserver\webserver\data\mariadb:/var/lib/mysql          
